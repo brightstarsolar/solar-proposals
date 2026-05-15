@@ -3,241 +3,305 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solar Savings Proposal | Care Plus</title>
+<title>Your Solar Savings Analysis | Care Plus</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #1f2933; }
-.cp-hero { background: #16a249; padding: 2.5rem 2rem 2rem; text-align: center; }
-.cp-logo { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85); letter-spacing: 2px; text-transform: uppercase; margin: 0 0 0.5rem; }
-.cp-hero h1 { font-size: 2rem; font-weight: 700; color: #fff; margin: 0 0 0.5rem; line-height: 1.2; }
-.cp-hero p { font-size: 14px; color: rgba(255,255,255,0.85); margin: 0; }
-.cp-cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; padding: 1.5rem; }
-.cp-card { background: #fff; border: 1.5px solid #d2f9e0; border-radius: 14px; padding: 1.25rem; }
-.cp-card-danger { border-color: #fca5a5; }
-.cp-card-winner { border: 2.5px solid #16a249; background: #f1f9f4; }
-.cp-card-neutral { border-color: #bfdbfe; }
-.cp-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 0.75rem; }
-.cp-badge-danger { background: #fee2e2; color: #b91c1c; }
-.cp-badge-winner { background: #16a249; color: #fff; }
-.cp-badge-neutral { background: #dbeafe; color: #1e40af; }
-.cp-card h2 { font-size: 1rem; font-weight: 700; color: #1f2933; margin: 0 0 0.2rem; }
-.cp-card-sub { font-size: 11px; color: #64748b; margin: 0 0 0.85rem; }
-.cp-pay-row { display: flex; align-items: baseline; gap: 5px; margin-bottom: 0.75rem; }
-.cp-payment { font-size: 1.8rem; font-weight: 700; }
-.cp-pay-danger { color: #dc2626; }
-.cp-pay-winner { color: #16a249; }
-.cp-pay-neutral { color: #1d4ed8; }
-.cp-pay-label { font-size: 11px; color: #64748b; }
-.cp-stat { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-top: 1px solid #ebf4ef; font-size: 11.5px; }
-.cp-stat-label { color: #64748b; }
-.cp-stat-val { font-weight: 600; }
-.cp-danger { color: #dc2626; }
-.cp-green { color: #16a249; }
-.cp-blue { color: #1d4ed8; }
-.cp-savings { color: #16a249; font-weight: 700; }
-.cp-note { font-size: 9.5px; color: #94a3b8; margin-top: 6px; }
-.cp-section { padding: 0 1.5rem 1.5rem; }
-.cp-section-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #16a249; margin: 0 0 0.75rem; }
-.cp-box { background: #f1f9f4; border: 1px solid #d2f9e0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
-.cp-box-title { font-size: 12px; font-weight: 600; color: #1f2933; margin: 0 0 0.75rem; }
-.cp-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.cp-table th { padding: 8px 10px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #64748b; border-bottom: 1.5px solid #d2f9e0; }
-.cp-table th:not(:first-child) { text-align: right; }
-.cp-table td { padding: 9px 10px; border-bottom: 1px solid #ebf4ef; }
-.cp-table td:not(:first-child) { text-align: right; font-weight: 600; }
-.cp-table tr:last-child td { border-bottom: none; }
-.cp-yr { font-weight: 500; color: #64748b; font-size: 11px; }
-.cp-highlight td { background: #dcfce7 !important; }
-.cp-highlight .cp-yr { color: #16a249; font-weight: 700; }
-.cp-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
-.cp-legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #64748b; }
-.cp-legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
-.cp-callout { background: #16a249; border-radius: 14px; padding: 1.75rem; margin: 0 1.5rem 1.5rem; text-align: center; }
-.cp-callout-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.8); margin: 0 0 4px; }
-.cp-callout-num { font-size: 3rem; font-weight: 700; color: #fff; margin: 0.25rem 0; line-height: 1; }
-.cp-callout-sub { font-size: 13px; color: rgba(255,255,255,0.85); margin: 0.4rem 0 0; }
-.cp-close { background: #f1f9f4; border-top: 2px solid #d2f9e0; padding: 2rem 1.5rem; text-align: center; }
-.cp-close h2 { font-size: 1.35rem; font-weight: 700; color: #1f2933; margin: 0 0 0.75rem; line-height: 1.35; }
-.cp-close p { font-size: 13px; color: #64748b; line-height: 1.75; max-width: 520px; margin: 0 auto 1.5rem; }
-.cp-close strong { color: #16a249; }
-.cp-cta { display: inline-block; background: #16a249; color: #fff; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 50px; border: none; cursor: pointer; letter-spacing: 0.3px; text-decoration: none; }
-.cp-footer { text-align: center; padding: 1rem; border-top: 1px solid #ebf4ef; }
-.cp-footer p { font-size: 10px; color: #94a3b8; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'system-ui','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.4}
+.cp-container{max-width:980px;margin:0 auto;background:#fff}
+.cp-hero{background:#16a249;padding:1.75rem 2rem 1.5rem;text-align:center;color:#fff}
+.cp-logo{font-size:11px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:3px;text-transform:uppercase;margin:0 0 0.4rem}
+.cp-hero h1{font-size:1.7rem;font-weight:800;color:#fff;margin:0 0 0.3rem;line-height:1.15;letter-spacing:-0.5px}
+.cp-hero-sub{font-size:13px;color:rgba(255,255,255,0.85);margin:0;font-weight:500}
+.cp-headline{background:#fff;padding:2.5rem 2rem 2rem;text-align:center;border-bottom:1px solid #e5e7eb}
+.cp-headline-eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#64748b;margin:0 0 0.5rem}
+.cp-headline-main{font-size:1.5rem;font-weight:700;color:#0f172a;margin:0 0 1.25rem;line-height:1.3}
+.cp-headline-amount{font-size:6rem;font-weight:900;color:#16a249;line-height:0.95;margin:0;letter-spacing:-3px;font-feature-settings:"tnum"}
+.cp-headline-amount-label{font-size:13px;font-weight:600;color:#16a249;letter-spacing:1.5px;text-transform:uppercase;margin:0.5rem 0 0}
+.cp-shock-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;padding:2rem;background:#f8fafc;border-bottom:1px solid #e5e7eb}
+.cp-shock-side{text-align:center}
+.cp-shock-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#64748b;margin:0 0 0.4rem}
+.cp-shock-amount-pge{font-size:3rem;font-weight:900;color:#dc2626;line-height:1;letter-spacing:-1px;margin:0}
+.cp-shock-amount-lr{font-size:3rem;font-weight:900;color:#16a249;line-height:1;letter-spacing:-1px;margin:0}
+.cp-shock-period{font-size:12px;color:#64748b;margin:0.3rem 0 0;font-weight:500}
+.cp-shock-vs{font-size:12px;font-weight:800;letter-spacing:2px;color:#94a3b8;background:#fff;padding:0.5rem 0.8rem;border-radius:50%;border:2px solid #e5e7eb}
+.cp-section{padding:2rem}
+.cp-section-header{margin:0 0 1.25rem}
+.cp-section-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#16a249;margin:0 0 0.3rem}
+.cp-section-title{font-size:1.3rem;font-weight:700;color:#0f172a;margin:0;line-height:1.3}
+.cp-chart-card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:1.5rem;margin-bottom:1rem}
+.cp-chart-callouts{display:flex;justify-content:space-between;margin:0 0 1rem;gap:1rem}
+.cp-chart-callout{flex:1;text-align:center;padding:0.85rem;background:#f8fafc;border-radius:10px}
+.cp-chart-callout-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#64748b;margin:0 0 0.3rem}
+.cp-chart-callout-val{font-size:1.4rem;font-weight:800;line-height:1}
+.cp-legend{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:0.5rem;justify-content:center}
+.cp-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#475569;font-weight:500}
+.cp-legend-dot{width:14px;height:3px;border-radius:2px;flex-shrink:0}
+.cp-legend-dot-square{width:11px;height:11px;border-radius:2px;flex-shrink:0}
+.cp-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.875rem;padding:0 2rem 2rem}
+.cp-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:14px;padding:1.25rem;position:relative}
+.cp-card-danger{border-color:#fecaca;background:#fefafa}
+.cp-card-winner{border:3px solid #16a249;background:#f0fdf4;transform:scale(1.02);box-shadow:0 4px 12px rgba(22,162,73,0.15)}
+.cp-card-neutral{background:#fafbfc}
+.cp-card-rank{position:absolute;top:-10px;left:1.25rem;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.cp-rank-bad{background:#dc2626;color:#fff}
+.cp-rank-best{background:#16a249;color:#fff}
+.cp-rank-ok{background:#64748b;color:#fff}
+.cp-card h3{font-size:14px;font-weight:700;color:#0f172a;margin:0.5rem 0 0.15rem}
+.cp-card-tag{font-size:11px;color:#64748b;margin:0 0 0.85rem;font-weight:500}
+.cp-pay-row{display:flex;align-items:baseline;gap:5px;margin-bottom:0.75rem;padding-bottom:0.75rem;border-bottom:1px solid #e5e7eb}
+.cp-payment{font-size:1.75rem;font-weight:800;letter-spacing:-1px}
+.cp-pay-danger{color:#dc2626}
+.cp-pay-winner{color:#16a249}
+.cp-pay-neutral{color:#475569}
+.cp-pay-label{font-size:11px;color:#64748b;font-weight:600}
+.cp-stat{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:12px}
+.cp-stat-label{color:#64748b;font-weight:500}
+.cp-stat-val{font-weight:700;color:#0f172a}
+.cp-danger{color:#dc2626 !important}
+.cp-green{color:#16a249 !important}
+.cp-savings-pill{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#dcfce7;border-radius:8px;margin-top:0.5rem;font-size:12px}
+.cp-savings-pill-label{color:#15803d;font-weight:600}
+.cp-savings-pill-val{color:#16a249;font-weight:800;font-size:14px}
+.cp-loss-pill{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#fee2e2;border-radius:8px;margin-top:0.5rem;font-size:12px}
+.cp-loss-pill-label{color:#b91c1c;font-weight:600}
+.cp-loss-pill-val{color:#dc2626;font-weight:800;font-size:14px}
+.cp-table{width:100%;border-collapse:collapse;font-size:13px}
+.cp-table th{padding:12px 14px;text-align:left;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#64748b;border-bottom:2px solid #e5e7eb;background:#f8fafc}
+.cp-table th:not(:first-child){text-align:right}
+.cp-table td{padding:12px 14px;border-bottom:1px solid #f1f5f9}
+.cp-table td:not(:first-child){text-align:right;font-weight:700;font-feature-settings:"tnum"}
+.cp-table tr:last-child td{border-bottom:none}
+.cp-yr{font-weight:700;color:#0f172a;font-size:13px}
+.cp-highlight td{background:#f0fdf4 !important}
+.cp-highlight .cp-yr{color:#16a249}
+.cp-close{background:#16a249;padding:2.5rem 2rem;text-align:center;color:#fff}
+.cp-close h2{font-size:1.55rem;font-weight:800;color:#fff;margin:0 0 0.75rem;line-height:1.25;letter-spacing:-0.3px}
+.cp-close p{font-size:14px;color:rgba(255,255,255,0.92);line-height:1.65;max-width:540px;margin:0 auto 1.5rem;font-weight:500}
+.cp-cta{background:#fff;color:#16a249;font-size:15px;font-weight:800;padding:16px 36px;border-radius:50px;border:none;cursor:pointer;letter-spacing:0.3px;display:inline-block;text-decoration:none}
+.cp-cta-sub{font-size:11px;color:rgba(255,255,255,0.75);margin:0.75rem 0 0;font-weight:600;letter-spacing:1.5px;text-transform:uppercase}
+.cp-footer{text-align:center;padding:1.25rem;background:#fff;border-top:1px solid #e5e7eb}
+.cp-footer p{font-size:10px;color:#94a3b8}
+@media(max-width:768px){
+  .cp-headline-amount{font-size:4rem}
+  .cp-shock-amount-pge,.cp-shock-amount-lr{font-size:2.1rem}
+  .cp-cards{grid-template-columns:1fr;padding:0 1rem 1.5rem}
+  .cp-card-winner{transform:none}
+  .cp-section,.cp-shock-row,.cp-close,.cp-headline,.cp-hero{padding-left:1rem;padding-right:1rem}
+  .cp-hero h1{font-size:1.4rem}
+  .cp-headline-main,.cp-section-title,.cp-close h2{font-size:1.2rem}
+}
 </style>
 </head>
 <body>
-
-<div class="cp-hero">
-  <p class="cp-logo">C+ &nbsp;Care Plus</p>
-  <h1>Three Paths. One Clear Winner.</h1>
-  <p>Your personalized 25-year solar savings analysis — every dollar calculated.</p>
-</div>
-
-<div class="cp-cards">
-  <div class="cp-card cp-card-danger">
-    <span class="cp-badge cp-badge-danger">⚠ Status Quo</span>
-    <h2>Stay with PG&amp;E</h2>
-    <p class="cp-card-sub">Rate keeps climbing — every year</p>
-    <div class="cp-pay-row"><span class="cp-payment cp-pay-danger">$376</span><span class="cp-pay-label">/mo today</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Current rate</span><span class="cp-stat-val cp-danger">$0.28/kWh</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Annual increase (yr 1–5)</span><span class="cp-stat-val cp-danger">+12%</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Annual increase (yr 6–25)</span><span class="cp-stat-val cp-danger">+9%</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Payment at year 10</span><span class="cp-stat-val cp-danger" id="pge-yr10">—</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">25-year total</span><span class="cp-stat-val cp-danger" id="pge-total">—</span></div>
-    <p class="cp-note">12% annual increase yrs 1–5, then 9% yrs 6–25.</p>
+<div class="cp-container">
+  <div class="cp-hero">
+    <p class="cp-logo">C+ &nbsp;Care Plus</p>
+    <h1>Your Solar Savings Analysis</h1>
+    <p class="cp-hero-sub">Three options compared side-by-side over 25 years</p>
   </div>
-  <div class="cp-card cp-card-winner">
-    <span class="cp-badge cp-badge-winner">★ Recommended</span>
-    <h2>Lightreach Power Purchase</h2>
-    <p class="cp-card-sub">Lock in your rate. Predictable forever.</p>
-    <div class="cp-pay-row"><span class="cp-payment cp-pay-winner">$291.41</span><span class="cp-pay-label">/mo today</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Rate</span><span class="cp-stat-val cp-green">$0.225/kWh</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Annual escalator</span><span class="cp-stat-val cp-green">+3.5%</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Upfront cost</span><span class="cp-stat-val cp-green">$0</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Payment at year 10</span><span class="cp-stat-val cp-green" id="lr-yr10">—</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">25-year total</span><span class="cp-stat-val cp-green" id="lr-total">—</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Savings vs PG&amp;E</span><span class="cp-stat-val cp-savings" id="lr-savings">—</span></div>
+  <div class="cp-headline">
+    <p class="cp-headline-eyebrow">The Bottom Line</p>
+    <p class="cp-headline-main">By choosing Lightreach over PG&amp;E, you keep</p>
+    <p class="cp-headline-amount" id="big-savings">—</p>
+    <p class="cp-headline-amount-label">in your pocket over 25 years</p>
   </div>
-  <div class="cp-card cp-card-neutral">
-    <span class="cp-badge cp-badge-neutral">Own It</span>
-    <h2>Purchase (Concert + Propel)</h2>
-    <p class="cp-card-sub">Fixed loan — own it at payoff</p>
-    <div class="cp-pay-row"><span class="cp-payment cp-pay-neutral">$461</span><span class="cp-pay-label">/mo fixed</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Effective rate</span><span class="cp-stat-val cp-blue">$0.35/kWh</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Annual escalator</span><span class="cp-stat-val cp-blue">None — fixed</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Upfront cost</span><span class="cp-stat-val cp-blue">$0 down</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Payment at year 10</span><span class="cp-stat-val cp-blue">$461.00</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">25-year total</span><span class="cp-stat-val cp-blue" id="pu-total">—</span></div>
-    <div class="cp-stat"><span class="cp-stat-label">Savings vs PG&amp;E</span><span class="cp-stat-val cp-savings" id="pu-savings">—</span></div>
-  </div>
-</div>
-
-<div class="cp-section">
-  <p class="cp-section-label">Payment Comparison by Year</p>
-  <div class="cp-box">
-    <p class="cp-box-title">Monthly payments at key milestones</p>
-    <table class="cp-table">
-      <thead>
-        <tr>
-          <th>Year</th>
-          <th style="color:#dc2626;">PG&amp;E</th>
-          <th style="color:#16a249;">Lightreach Power Purchase</th>
-          <th style="color:#1d4ed8;">Purchase</th>
-          <th style="color:#16a249;">Lightreach saves vs PG&amp;E</th>
-        </tr>
-      </thead>
-      <tbody id="milestone-tbody"></tbody>
-    </table>
-  </div>
-
-  <p class="cp-section-label">Monthly Payment — Year by Year</p>
-  <div class="cp-box">
-    <p class="cp-box-title">How much you'll pay per month over 25 years</p>
-    <div class="cp-legend">
-      <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#dc2626;"></span>PG&amp;E (status quo)</span>
-      <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#16a249;"></span>Lightreach Power Purchase</span>
-      <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#4a90b8;"></span>Purchase Loan</span>
+  <div class="cp-shock-row">
+    <div class="cp-shock-side">
+      <p class="cp-shock-label">PG&amp;E in 25 years</p>
+      <p class="cp-shock-amount-pge" id="pge-yr25">—</p>
+      <p class="cp-shock-period">per month</p>
     </div>
-    <div style="position:relative;width:100%;height:260px;">
-      <canvas id="monthlyChart" role="img" aria-label="Line chart showing monthly payments over 25 years. PG&E rises steeply, Lightreach rises slowly, Purchase stays flat.">Monthly payments rise steeply for PG&E, slowly for Lightreach, flat for Purchase.</canvas>
+    <div class="cp-shock-vs">VS</div>
+    <div class="cp-shock-side">
+      <p class="cp-shock-label">Lightreach in 25 years</p>
+      <p class="cp-shock-amount-lr" id="lr-yr25">—</p>
+      <p class="cp-shock-period">per month</p>
     </div>
   </div>
-
-  <div class="cp-box">
-    <p class="cp-box-title">Total dollars spent — cumulative over 25 years</p>
-    <div class="cp-legend">
-      <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#dc2626;"></span>PG&amp;E</span>
-      <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#16a249;"></span>Lightreach Power Purchase</span>
-      <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#4a90b8;"></span>Purchase</span>
+  <div class="cp-section">
+    <div class="cp-section-header">
+      <p class="cp-section-eyebrow">Visual Proof</p>
+      <p class="cp-section-title">PG&amp;E's bill grows out of control. Lightreach barely moves.</p>
     </div>
-    <div style="position:relative;width:100%;height:260px;">
-      <canvas id="cumulativeChart" role="img" aria-label="Line chart showing cumulative costs over 25 years. PG&E is highest, Lightreach is lowest.">Cumulative spend: PG&E highest, Lightreach lowest, Purchase in between.</canvas>
+    <div class="cp-chart-card">
+      <div class="cp-chart-callouts">
+        <div class="cp-chart-callout">
+          <p class="cp-chart-callout-label">PG&amp;E year 1 &rarr; 25</p>
+          <p class="cp-chart-callout-val" style="color:#dc2626" id="pge-growth">&mdash;</p>
+        </div>
+        <div class="cp-chart-callout">
+          <p class="cp-chart-callout-label">Lightreach year 1 &rarr; 25</p>
+          <p class="cp-chart-callout-val" style="color:#16a249" id="lr-growth">&mdash;</p>
+        </div>
+      </div>
+      <div class="cp-legend">
+        <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#dc2626"></span>PG&amp;E (uncontrolled rate hikes)</span>
+        <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#16a249"></span>Lightreach (3.5% fixed escalator)</span>
+        <span class="cp-legend-item"><span class="cp-legend-dot" style="background:#475569"></span>Purchase (flat $461)</span>
+      </div>
+      <div style="position:relative;width:100%;height:320px">
+        <canvas id="monthlyChart" role="img" aria-label="Monthly payment trajectory over 25 years">PG&amp;E monthly payments grow dramatically while Lightreach stays predictable.</canvas>
+      </div>
+    </div>
+    <div class="cp-chart-card">
+      <div class="cp-chart-callouts">
+        <div class="cp-chart-callout">
+          <p class="cp-chart-callout-label">Total to PG&amp;E (25 yrs)</p>
+          <p class="cp-chart-callout-val" style="color:#dc2626" id="pge-total-big">&mdash;</p>
+        </div>
+        <div class="cp-chart-callout">
+          <p class="cp-chart-callout-label">Total to Lightreach (25 yrs)</p>
+          <p class="cp-chart-callout-val" style="color:#16a249" id="lr-total-big">&mdash;</p>
+        </div>
+      </div>
+      <div class="cp-legend">
+        <span class="cp-legend-item"><span class="cp-legend-dot-square" style="background:#dc2626"></span>PG&amp;E cumulative</span>
+        <span class="cp-legend-item"><span class="cp-legend-dot-square" style="background:#16a249"></span>Lightreach cumulative</span>
+        <span class="cp-legend-item"><span class="cp-legend-dot-square" style="background:#94a3b8"></span>Purchase cumulative</span>
+      </div>
+      <div style="position:relative;width:100%;height:280px">
+        <canvas id="cumulativeChart" role="img" aria-label="Cumulative total dollars paid over 25 years">Total dollars paid over 25 years for each option.</canvas>
+      </div>
     </div>
   </div>
+  <div class="cp-section" style="padding-top:0">
+    <div class="cp-section-header">
+      <p class="cp-section-eyebrow">Year-by-Year</p>
+      <p class="cp-section-title">How the monthly payment changes at every milestone</p>
+    </div>
+    <div class="cp-chart-card" style="padding:0;overflow:hidden">
+      <table class="cp-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th style="color:#dc2626">PG&amp;E</th>
+            <th style="color:#16a249">Lightreach</th>
+            <th style="color:#475569">Purchase</th>
+            <th style="color:#16a249">You save monthly</th>
+          </tr>
+        </thead>
+        <tbody id="milestone-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="cp-section" style="padding-top:0;padding-bottom:1rem">
+    <div class="cp-section-header">
+      <p class="cp-section-eyebrow">Your Three Options</p>
+      <p class="cp-section-title">Compare the details side-by-side</p>
+    </div>
+  </div>
+  <div class="cp-cards">
+    <div class="cp-card cp-card-danger">
+      <span class="cp-card-rank cp-rank-bad">&times; Worst Option</span>
+      <h3>Stay with PG&amp;E</h3>
+      <p class="cp-card-tag">Bill grows forever</p>
+      <div class="cp-pay-row"><span class="cp-payment cp-pay-danger">$376</span><span class="cp-pay-label">/mo today</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Rate per kWh</span><span class="cp-stat-val cp-danger">$0.28</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Yearly increase</span><span class="cp-stat-val cp-danger">+9&ndash;12%</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Payment yr 10</span><span class="cp-stat-val cp-danger" id="pge-yr10">&mdash;</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">25-yr total</span><span class="cp-stat-val cp-danger" id="pge-total">&mdash;</span></div>
+      <div class="cp-loss-pill">
+        <span class="cp-loss-pill-label">You lose</span>
+        <span class="cp-loss-pill-val" id="lr-savings-2">&mdash;</span>
+      </div>
+    </div>
+    <div class="cp-card cp-card-winner">
+      <span class="cp-card-rank cp-rank-best">&#9733; Best Choice</span>
+      <h3>Lightreach Power Purchase</h3>
+      <p class="cp-card-tag">$0 down. Locked-in pricing.</p>
+      <div class="cp-pay-row"><span class="cp-payment cp-pay-winner">$291</span><span class="cp-pay-label">/mo today</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Rate per kWh</span><span class="cp-stat-val cp-green">$0.225</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Yearly increase</span><span class="cp-stat-val cp-green">+3.5% only</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Payment yr 10</span><span class="cp-stat-val cp-green" id="lr-yr10">&mdash;</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">25-yr total</span><span class="cp-stat-val cp-green" id="lr-total">&mdash;</span></div>
+      <div class="cp-savings-pill">
+        <span class="cp-savings-pill-label">You keep</span>
+        <span class="cp-savings-pill-val" id="lr-savings">&mdash;</span>
+      </div>
+    </div>
+    <div class="cp-card cp-card-neutral">
+      <span class="cp-card-rank cp-rank-ok">Alternative</span>
+      <h3>Purchase (Concert + Propel)</h3>
+      <p class="cp-card-tag">Fixed loan &mdash; own it</p>
+      <div class="cp-pay-row"><span class="cp-payment cp-pay-neutral">$461</span><span class="cp-pay-label">/mo fixed</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Effective rate</span><span class="cp-stat-val">$0.35/kWh</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Yearly increase</span><span class="cp-stat-val">Fixed</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">Payment yr 10</span><span class="cp-stat-val">$461</span></div>
+      <div class="cp-stat"><span class="cp-stat-label">25-yr total</span><span class="cp-stat-val" id="pu-total">&mdash;</span></div>
+      <div class="cp-savings-pill" style="background:#f1f5f9">
+        <span class="cp-savings-pill-label" style="color:#475569">You keep</span>
+        <span class="cp-savings-pill-val" style="color:#475569" id="pu-savings">&mdash;</span>
+      </div>
+    </div>
+  </div>
+  <div class="cp-close">
+    <h2>Every month you wait, PG&amp;E raises your rates.<br>Lightreach locks you in today.</h2>
+    <p>Zero upfront cost. 25-year warranty. 100% renewable. The longer you wait, the more PG&amp;E takes. The math has never been clearer.</p>
+    <a class="cp-cta" href="tel:8555478842">Lock In My Rate Today &nbsp;&rarr;</a>
+    <p class="cp-cta-sub">No obligation &middot; Takes 5 minutes</p>
+  </div>
+  <div class="cp-footer">
+    <p>Care Plus &nbsp;|&nbsp; (855) 547-8842 &nbsp;|&nbsp; info@careplus.ca &nbsp;|&nbsp; Licensed by California Care Plus for CA Families &nbsp;|&nbsp; 100% Renewable Energy</p>
+  </div>
 </div>
-
-<div class="cp-callout">
-  <p class="cp-callout-label">Your 25-year savings with Lightreach Power Purchase vs PG&amp;E</p>
-  <p class="cp-callout-num" id="big-savings">—</p>
-  <p class="cp-callout-sub">That's money that stays in your pocket — not PG&amp;E's.</p>
-</div>
-
-<div class="cp-close">
-  <h2>Every month you wait, PG&amp;E raises your rates.<br>Lightreach locks you in today.</h2>
-  <p>The math doesn't lie. PG&amp;E will charge you more every single year — guaranteed. Lightreach Power Purchase gives you clean solar energy at a rate that barely budges, with <strong>zero upfront cost</strong> and a <strong>25-year warranty</strong>. You're not buying a system — you're buying price certainty in an uncertain world. The question isn't whether this makes sense. It's how much longer you want to keep writing PG&amp;E a bigger check.</p>
-  <a class="cp-cta" href="tel:8555478842">Get Started with Lightreach Power Purchase</a>
-</div>
-
-<div class="cp-footer">
-  <p>Care Plus &nbsp;|&nbsp; (855) 547-8842 &nbsp;|&nbsp; info@careplus.ca &nbsp;|&nbsp; Licensed by California Care Plus for CA Families &nbsp;|&nbsp; 100% Renewable Energy</p>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-function pgeMonthly(yr) { let m=376; for(let y=1;y<=yr;y++) m*=(y<=5)?1.12:1.09; return m; }
-function lrMonthly(yr)  { let m=291.41; for(let y=1;y<=yr;y++) m*=1.035; return m; }
-
-const years25 = Array.from({length:25},(_,i)=>i+1);
-const pgeArr  = years25.map(y=>pgeMonthly(y));
-const lrArr   = years25.map(y=>lrMonthly(y));
-const pgeTot  = pgeArr.reduce((s,v)=>s+v*12,0);
-const lrTot   = lrArr.reduce((s,v)=>s+v*12,0);
-const puTot   = 461*12*25;
-
-document.getElementById('pge-yr10').textContent  = '$'+Math.round(pgeMonthly(10));
-document.getElementById('pge-total').textContent = '$'+Math.round(pgeTot).toLocaleString();
-document.getElementById('lr-yr10').textContent   = '$'+Math.round(lrMonthly(10));
-document.getElementById('lr-total').textContent  = '$'+Math.round(lrTot).toLocaleString();
-document.getElementById('lr-savings').textContent= '+$'+Math.round(pgeTot-lrTot).toLocaleString();
-document.getElementById('pu-total').textContent  = '$'+Math.round(puTot).toLocaleString();
-document.getElementById('pu-savings').textContent= '+$'+Math.round(pgeTot-puTot).toLocaleString();
-document.getElementById('big-savings').textContent = '$'+Math.round(pgeTot-lrTot).toLocaleString();
-
-const milestones = [1,5,10,15,20,25];
-const tbody = document.getElementById('milestone-tbody');
+function pgeMonthly(yr){let m=376;for(let y=1;y<=yr;y++)m*=(y<=5)?1.12:1.09;return m;}
+function lrMonthly(yr){let m=291.41;for(let y=1;y<=yr;y++)m*=1.035;return m;}
+const years25=Array.from({length:25},(_,i)=>i+1);
+const pgeArr=years25.map(y=>pgeMonthly(y));
+const lrArr=years25.map(y=>lrMonthly(y));
+const pgeTot=pgeArr.reduce((s,v)=>s+v*12,0);
+const lrTot=lrArr.reduce((s,v)=>s+v*12,0);
+const puTot=461*12*25;
+const savings=pgeTot-lrTot;
+const fmt=n=>'$'+Math.round(n).toLocaleString();
+document.getElementById('big-savings').textContent=fmt(savings);
+document.getElementById('pge-yr25').textContent=fmt(pgeMonthly(25));
+document.getElementById('lr-yr25').textContent=fmt(lrMonthly(25));
+document.getElementById('pge-yr10').textContent=fmt(pgeMonthly(10));
+document.getElementById('lr-yr10').textContent=fmt(lrMonthly(10));
+document.getElementById('pge-total').textContent=fmt(pgeTot);
+document.getElementById('lr-total').textContent=fmt(lrTot);
+document.getElementById('pge-total-big').textContent=fmt(pgeTot);
+document.getElementById('lr-total-big').textContent=fmt(lrTot);
+document.getElementById('pu-total').textContent=fmt(puTot);
+document.getElementById('lr-savings').textContent='+'+fmt(savings);
+document.getElementById('lr-savings-2').textContent='\u2013'+fmt(savings);
+document.getElementById('pu-savings').textContent='+'+fmt(pgeTot-puTot);
+document.getElementById('pge-growth').textContent='$376 \u2192 '+fmt(pgeMonthly(25));
+document.getElementById('lr-growth').textContent='$291 \u2192 '+fmt(lrMonthly(25));
+const milestones=[1,5,10,15,20,25];
+const tbody=document.getElementById('milestone-tbody');
 milestones.forEach(yr=>{
-  const pge = yr===1?376:pgeMonthly(yr);
-  const lr  = yr===1?291.41:lrMonthly(yr);
-  const tr  = document.createElement('tr');
-  if(yr===10) tr.className='cp-highlight';
-  tr.innerHTML=`<td class="cp-yr">Year ${yr}</td><td style="color:#dc2626;">$${Math.round(pge)}</td><td style="color:#16a249;">$${Math.round(lr)}</td><td style="color:#1d4ed8;">$461</td><td style="color:#16a249;font-size:11px;">+$${Math.round(pge-lr)}/mo</td>`;
+  const pge=yr===1?376:pgeMonthly(yr);
+  const lr=yr===1?291.41:lrMonthly(yr);
+  const tr=document.createElement('tr');
+  if(yr===10)tr.className='cp-highlight';
+  tr.innerHTML='<td class="cp-yr">Year '+yr+'</td><td style="color:#dc2626">$'+Math.round(pge).toLocaleString()+'</td><td style="color:#16a249">$'+Math.round(lr).toLocaleString()+'</td><td style="color:#475569">$461</td><td style="color:#16a249">+$'+Math.round(pge-lr).toLocaleString()+'/mo</td>';
   tbody.appendChild(tr);
 });
-
-const gridColor='rgba(22,162,73,0.1)';
+const gridColor='rgba(15,23,42,0.06)';
 const baseOpts={
   responsive:true,maintainAspectRatio:false,
-  plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' $'+Math.round(ctx.parsed.y)}}},
-  scales:{
-    x:{grid:{color:gridColor},ticks:{color:'#94a3b8',font:{size:10},maxTicksLimit:13}},
-    y:{grid:{color:gridColor},ticks:{color:'#94a3b8',font:{size:10},callback:v=>'$'+Math.round(v).toLocaleString()}}
-  }
+  plugins:{legend:{display:false},tooltip:{backgroundColor:'#0f172a',titleColor:'#fff',bodyColor:'#fff',padding:10,callbacks:{label:ctx=>ctx.dataset.label+': $'+Math.round(ctx.parsed.y).toLocaleString()}}},
+  scales:{x:{grid:{display:false},ticks:{color:'#94a3b8',font:{size:11,weight:'500'},maxTicksLimit:13}},y:{grid:{color:gridColor},ticks:{color:'#94a3b8',font:{size:11,weight:'500'},callback:v=>'$'+Math.round(v).toLocaleString()}}}
 };
-
-const pgeData=[376,...pgeArr], lrData=[291.41,...lrArr], puData=Array(26).fill(461);
 const labels=['Now',...years25.map(y=>'Yr '+y)];
-
-new Chart(document.getElementById('monthlyChart'),{
-  type:'line',
-  data:{labels,datasets:[
-    {label:'PG&E',data:pgeData,borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,0.07)',borderWidth:2,pointRadius:0,fill:true,tension:0.3},
-    {label:'Lightreach',data:lrData,borderColor:'#16a249',backgroundColor:'rgba(22,162,73,0.08)',borderWidth:2.5,pointRadius:0,fill:true,tension:0.3},
-    {label:'Purchase',data:puData,borderColor:'#4a90b8',backgroundColor:'rgba(74,144,184,0.05)',borderWidth:2,borderDash:[6,4],pointRadius:0,fill:true,tension:0}
-  ]},
-  options:baseOpts
-});
-
+const pgeData=[376,...pgeArr];
+const lrData=[291.41,...lrArr];
+const puData=Array(26).fill(461);
+new Chart(document.getElementById('monthlyChart'),{type:'line',data:{labels,datasets:[
+  {label:'PG&E',data:pgeData,borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,0.1)',borderWidth:3,pointRadius:0,fill:true,tension:0.35},
+  {label:'Lightreach',data:lrData,borderColor:'#16a249',backgroundColor:'rgba(22,162,73,0.12)',borderWidth:3,pointRadius:0,fill:true,tension:0.35},
+  {label:'Purchase',data:puData,borderColor:'#475569',backgroundColor:'transparent',borderWidth:2,borderDash:[6,4],pointRadius:0,fill:false}
+]},options:baseOpts});
 function cumulative(arr){let s=0;return arr.map(v=>{s+=v*12;return Math.round(s);});}
-
-new Chart(document.getElementById('cumulativeChart'),{
-  type:'line',
-  data:{labels:years25.map(y=>'Yr '+y),datasets:[
-    {label:'PG&E',data:cumulative(pgeArr),borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,0.08)',borderWidth:2,pointRadius:0,fill:true,tension:0.3},
-    {label:'Lightreach',data:cumulative(lrArr),borderColor:'#16a249',backgroundColor:'rgba(22,162,73,0.1)',borderWidth:2.5,pointRadius:0,fill:true,tension:0.3},
-    {label:'Purchase',data:cumulative(Array(25).fill(461)),borderColor:'#4a90b8',backgroundColor:'rgba(74,144,184,0.06)',borderWidth:2,borderDash:[6,4],pointRadius:0,fill:true,tension:0.3}
-  ]},
-  options:{...baseOpts,scales:{...baseOpts.scales,y:{...baseOpts.scales.y,ticks:{color:'#94a3b8',font:{size:10},callback:v=>'$'+Math.round(v/1000)+'k'}}}}
-});
+new Chart(document.getElementById('cumulativeChart'),{type:'line',data:{labels:years25.map(y=>'Yr '+y),datasets:[
+  {label:'PG&E',data:cumulative(pgeArr),borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,0.15)',borderWidth:3,pointRadius:0,fill:true,tension:0.35},
+  {label:'Lightreach',data:cumulative(lrArr),borderColor:'#16a249',backgroundColor:'rgba(22,162,73,0.15)',borderWidth:3,pointRadius:0,fill:true,tension:0.35},
+  {label:'Purchase',data:cumulative(Array(25).fill(461)),borderColor:'#94a3b8',backgroundColor:'rgba(148,163,184,0.1)',borderWidth:2,borderDash:[6,4],pointRadius:0,fill:true,tension:0}
+]},options:{...baseOpts,scales:{...baseOpts.scales,y:{...baseOpts.scales.y,ticks:{color:'#94a3b8',font:{size:11,weight:'500'},callback:v=>'$'+Math.round(v/1000)+'K'}}}}});
 </script>
 </body>
 </html>
